@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name:  dbt_RAW_STRIPE
+    database: test_db
+    tables:
+      - name: payment     
+        loaded_at_field: _etl_loaded_at
+        freshness: 
+          warn_after:
+            count: 1
+            period: day
+          error_after:
+            count: 2
+            period: day
+        
