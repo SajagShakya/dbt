@@ -2,18 +2,23 @@ version: 2
 
 sources:
   - name:  dbt_RAW_jaffle_shop
+    description: clone of posgres application db
     database: test_db
-    tables:
+    tables:      
       - name: customers
+        description: raw customers data
         columns:
           - name: id
+            description: Pk of source data
             tests:
               - unique
               - not_null
               
       - name: orders
+        description: raw orders table
         columns:
           - name: id
+            description: Pk of source data
             tests:
               - unique
               - not_null
@@ -26,4 +31,7 @@ sources:
           error_after:
             count: 2
             period: day
+      
+
+        
         
